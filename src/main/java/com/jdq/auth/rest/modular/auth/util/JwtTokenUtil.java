@@ -1,7 +1,7 @@
 package com.jdq.auth.rest.modular.auth.util;
 
 
-import com.jdq.auth.rest.common.config.properties.JwtPropertise;
+import com.jdq.auth.rest.config.properties.JwtPropertise;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 
 /**
  * <p>jwt token工具类</p>

@@ -1,4 +1,4 @@
-package com.jdq.auth.rest.common.config.properties;
+package com.jdq.auth.rest.config.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
