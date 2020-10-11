@@ -1,4 +1,4 @@
-package com.jdq.auth.rest.modular.auth.util;
+package com.jdq.auth.rest.common.util;
 
 
 import cn.hutool.core.date.DateUtil;

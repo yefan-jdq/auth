@@ -1,6 +1,7 @@
 package com.jdq.auth.rest.modular.auth.util;
 
 
+import com.jdq.auth.rest.common.util.ToolUtil;
 import com.jdq.auth.rest.config.properties.JwtPropertise;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;

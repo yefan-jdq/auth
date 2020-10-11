@@ -8,13 +8,47 @@ jwt:
   expiration: 604800      #7天 单位:秒
   auth-path: auth         #认证请求的路径
   md5-key: randomKey      #md5加密混淆key
-  ignore-url: /api/auth #忽略列表
+  ignore-url: /api/auth,/user/list,/user/info,/user/add,/user/sayHello #忽略列表
 
+mybatis-plus:
+  #如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  #如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  #typeAliasesPackage: com.ucitymc.tpro.model
+  #type-enums-package: com.ucitymetro.ucitymc.museum.enums
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 0
+    #热加载mapper文件
+    refresh: true
+    db-config:
+      table-underline: true
+      column-underline: true
+      update-strategy: not_null
 
 server:
-  port: 8700 #项目端口
+  ip: 127.0.0.1 #项目ip
+  port: 8300 #项目端口
 
 
 spring:
   application:
     name: auth
+  datasource:
+    url: jdbc:mysql://${server.ip}:3306/guns_rest?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: jdq@1996
+    hikari:
+      pool-name: DatebookHikariCP
+      #连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
+      maximumPoolSize: 30
+      connectionTestSql: SELECT 1
+      #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，
+      #建议设置比数据库超时时长少30秒，参考MySQL wait_timeout参数（show variables like '%timeout%';）
+      maxLifetime: 900000
+      #等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException， 30秒
+      connectionTimeout: 30000
+      #一个连接idle状态的最大时长（毫秒），超时则被释放（retired），10分钟
+      idleTimeout: 600000
