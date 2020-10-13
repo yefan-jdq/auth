@@ -5,8 +5,11 @@ import com.jdq.auth.rest.common.CurrentUser;
 import com.jdq.auth.rest.common.dto.input.MoocUserTListInput;
 import com.jdq.auth.rest.common.vo.Result;
 import com.jdq.auth.rest.modular.admin.controller.AdminController;
+import com.jdq.modular.user.dto.MoocUserCreateInput;
+import com.jdq.modular.user.dto.UserLoginInput;
 import com.jdq.modular.user.model.MoocUserT;
 import com.jdq.modular.user.service.MoocUserTService;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,10 +42,14 @@ public class MoocUserTController extends AdminController {
     }
 
     @PostMapping("add")
-    public Result addMoocUserT(@RequestBody MoocUserT input) {
+    public Result addMoocUserT(@Validated @RequestBody MoocUserCreateInput input) {
 	String userId = CurrentUser.getCurrentUser();
-	input.setModifier(userId);
-	return moocUserTService.addMoocUserT(input);
+	return moocUserTService.addMoocUserT(input.moocUserAdapter(userId));
+    }
+
+    @PostMapping("login")
+    public Result login(@Validated @RequestBody UserLoginInput userLoginInput) {
+        return moocUserTService.login(userLoginInput.getUsername(), userLoginInput.getPassword());
     }
 
 

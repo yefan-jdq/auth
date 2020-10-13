@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public abstract class BasePage {
 
-	protected int page = 1;
+    protected int page = 1;
 
-	protected int limit = 20;
+    protected int limit = 20;
 }

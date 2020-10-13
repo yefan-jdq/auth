@@ -54,4 +54,12 @@ public interface MoocUserTService extends IService<MoocUserT> {
      */
     Result deleteMoocUserT(Long id);
 
+    /**
+     * 登入接口
+     * @param userName
+     * @param password
+     * @return
+     */
+    Result login(String userName, String password);
+
 }

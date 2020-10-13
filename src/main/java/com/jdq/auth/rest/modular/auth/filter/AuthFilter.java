@@ -1,8 +1,6 @@
 package com.jdq.auth.rest.modular.auth.filter;
 
 import com.jdq.auth.rest.common.CurrentUser;
-import com.jdq.auth.rest.common.exception.BizExceptionEnum;
-import com.jdq.auth.rest.common.tips.ErrorTip;
 import com.jdq.auth.rest.config.properties.JwtPropertise;
 import com.jdq.auth.rest.modular.auth.util.JwtTokenUtil;
 import com.jdq.auth.rest.modular.auth.util.RenderUtil;
@@ -11,7 +9,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.filter.OncePerRequestFilter;
-
+import com.jdq.auth.rest.common.exception.*;
+import com.jdq.auth.rest.common.tips.*;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

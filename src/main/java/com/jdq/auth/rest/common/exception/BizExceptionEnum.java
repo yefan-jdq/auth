@@ -22,7 +22,12 @@ public enum BizExceptionEnum implements ServiceExceptionEnum {
     /**
      * 其他
      */
-    AUTH_REQUEST_ERROR(400, "账号密码错误");
+    AUTH_REQUEST_ERROR(400, "账号密码错误"),
+
+    /**
+     * 通用错误
+     */
+    GATEWAY_ERROR(1, "服务器异常！");
 
     BizExceptionEnum(int code, String message) {
         this.code = code;
